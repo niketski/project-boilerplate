@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -45,6 +46,10 @@ module.exports = {
         {
           test: /\.(woff|woff2|eot|ttf)/,
           use: ['url-loader']
+        },
+        {
+          test: /\.html$/,
+          use: ['html-loader']
         }
     ]
   },
@@ -54,8 +59,9 @@ module.exports = {
           filename: './[name].css' // our main style /dist/styles/[name].css
       }),
       new HtmlWebpackPlugin({
-        template: './index.html', // the html file that we are going to use
+        template: './src/index.html', // the html file that we are going to use
         inject: true // automatically injects all the files imported from the entry point './src/index.js'
-    })
+      }),
+      new CleanWebpackPlugin()
   ]
 };
