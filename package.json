@@ -32,6 +32,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "font-awesome": "^4.7.0",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   }
 }
